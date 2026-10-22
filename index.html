@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MystDrop — уникальный БоксПВП на Minecraft Java</title>
+<meta name="description" content="MystDrop — уникальный БоксПВП сервер Minecraft Java. Быстрые бои, донат, правила и быстрый вход: mystdrop.play.ski">
+<meta property="og:title" content="MystDrop — Твой бокс. Твоя битва.">
+<meta property="og:description" content="Уникальный БоксПВП сервер Minecraft Java. IP: mystdrop.play.ski">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0e1524">
+<!-- ФАВИКОН-ПЛЕЙСХОЛДЕР: замени на свой favicon.png -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💧%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#0e1524;--card:rgba(24,34,56,.72);--card2:rgba(52,34,70,.62);--text:#f4f6ff;--muted:#9aa7c4;--line:rgba(255,255,255,.1);--a:#7cc7ff;--b:#f5a8d9;--grad:linear-gradient(120deg,#8fd0ff,#f6a9d8,#8fd0ff);--on:#0e1524;--hdr:rgba(14,21,36,.82);--shadow:0 22px 60px rgba(0,0,0,.4);--blob:.42;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme=light]{--bg:#f5f7ff;--card:rgba(255,255,255,.82);--card2:rgba(255,235,247,.85);--text:#16203a;--muted:#5b6988;--line:rgba(22,32,58,.11);--a:#1f7fd6;--b:#d2428f;--grad:linear-gradient(120deg,#4aa8ee,#e868b0,#4aa8ee);--on:#fff;--hdr:rgba(245,247,255,.85);--shadow:0 22px 50px rgba(70,90,150,.18);--blob:.55}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:'Manrope',system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:120px;overflow-x:hidden;transition:background .4s,color .4s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hdr);z-index:60}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+.ic{width:1.15em;height:1.15em;flex:none;vertical-align:-.18em}
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(95px);opacity:var(--blob);animation:br 16s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:46vw;height:46vw;left:-8vw;top:-10vw;background:#4aa8ee}
+.bg i:nth-child(2){width:42vw;height:42vw;right:-10vw;top:20vh;background:#e868b0;animation-delay:-5s}
+.bg i:nth-child(3){width:38vw;height:38vw;left:25vw;bottom:-16vw;background:#8a7cff;animation-delay:-9s}
+@keyframes br{to{transform:translate(5vw,-4vw) scale(1.28)}}
+#pt{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.w{width:min(1120px,92%);margin:auto}
+section{padding:84px 0}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--hdr);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);animation:down .7s both}
+.top .w{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;flex-wrap:wrap}
+@keyframes down{from{transform:translateY(-100%);opacity:0}}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+.logo .ic{color:var(--b);width:1.4em;height:1.4em;transition:transform .5s}
+.logo:hover .ic{transform:rotate(-12deg) scale(1.2)}
+nav{display:flex;gap:6px}
+nav a{position:relative;padding:8px 14px;border-radius:12px;font-size:.92rem;color:var(--muted);font-weight:500;animation:fd .6s both;transition:color .25s,background .25s}
+nav a:nth-child(1){animation-delay:.25s}nav a:nth-child(2){animation-delay:.32s}nav a:nth-child(3){animation-delay:.39s}nav a:nth-child(4){animation-delay:.46s}nav a:nth-child(5){animation-delay:.53s}
+@keyframes fd{from{opacity:0;transform:translateY(-10px)}}
+nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;border-radius:2px;background:var(--grad);transform:scaleX(0);transition:transform .3s}
+nav a:hover,nav a.on{color:var(--text)}
+nav a:hover::after,nav a.on::after{transform:scaleX(1)}
+nav a.on{background:color-mix(in srgb,var(--a) 14%,transparent)}
+.tr{display:flex;gap:10px;align-items:center}
+#theme{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;transition:.3s}
+#theme:hover{transform:rotate(25deg) scale(1.08);border-color:var(--a)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:14px;font-weight:700;font-size:.95rem;transition:transform .25s,box-shadow .25s,border-color .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(0) scale(.96)}
+.btn.p{background:var(--grad);background-size:200% 100%;color:#101827;box-shadow:0 8px 26px color-mix(in srgb,var(--b) 30%,transparent);transition:transform .25s,box-shadow .25s,background-position .6s}
+.btn.p:hover{background-position:100% 0;box-shadow:0 14px 36px color-mix(in srgb,var(--b) 50%,transparent)}
+.btn.p::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg)}
+.btn.p:hover::after{left:130%;transition:left .7s}
+.btn.g{background:var(--card);border:1px solid var(--line)}
+.btn.g:hover{border-color:var(--a);box-shadow:0 10px 30px color-mix(in srgb,var(--a) 25%,transparent)}
+.sm{padding:9px 18px;font-size:.88rem}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--a);margin-bottom:14px}
+h1{font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+h1 span{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gm 6s linear infinite}
+@keyframes gm{to{background-position:200% 0}}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.sub{color:var(--muted);margin:12px 0 38px;max-width:60ch}
+.hero{padding:70px 0 40px}
+.hero .w{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.lead{color:var(--muted);margin:22px 0 28px;max-width:46ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.status{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:.88rem;color:var(--muted)}
+.status b{color:var(--text)}
+.dot{width:9px;height:9px;border-radius:50%;background:#5fe3b1;box-shadow:0 0 0 0 #5fe3b199;animation:pl 1.8s infinite}
+.dot.off{background:#f08a8a;animation:none}
+@keyframes pl{70%{box-shadow:0 0 0 10px #5fe3b100}100%{box-shadow:0 0 0 0 #5fe3b100}}
+.tag{padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:.78rem}
+.feats{display:flex;gap:26px;flex-wrap:wrap;margin-top:44px;font-size:.88rem;color:var(--muted)}
+.feats span{display:flex;gap:8px;align-items:center}.feats .ic{color:var(--b)}
+.art{position:relative;aspect-ratio:4/3.6;border-radius:26px;border:1px solid color-mix(in srgb,var(--b) 45%,var(--line));background:linear-gradient(135deg,#27456b,#5b3a78 60%,#9b5d95);box-shadow:0 0 70px color-mix(in srgb,var(--b) 35%,transparent),var(--shadow);overflow:hidden;transition:transform .2s ease-out;display:grid;place-items:center;text-align:center;padding:20px;color:#fff;font-size:.85rem}
+.art img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;transition:transform .2s ease-out}
+.art figcaption{position:absolute;left:16px;bottom:16px;padding:8px 16px;border-radius:99px;background:rgba(14,21,36,.78);backdrop-filter:blur(8px);color:#fff;font-weight:700;font-size:.82rem;animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-7px)}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;backdrop-filter:blur(10px);transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow),0 0 0 1px color-mix(in srgb,var(--c,var(--a)) 55%,transparent);border-color:transparent}
+.step .n{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--grad);color:#101827;font-weight:800;margin-bottom:16px;position:relative}
+.step:not(:last-child) .n::after{content:"";position:absolute;left:52px;top:50%;width:calc(100% + 60px);height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);pointer-events:none}
+.step h3{font-size:1.02rem;margin-bottom:6px;display:flex;gap:8px;align-items:center}.step h3 .ic{color:var(--a)}
+.step p{color:var(--muted);font-size:.9rem}.step .btn{margin-top:14px}
+.help{margin-top:22px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--card2)}
+.shop{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.rank{--c:#7cc7ff;display:flex;flex-direction:column;gap:12px;border-top:3px solid var(--c)}
+.rank .em{font-size:1.9rem;line-height:1}
+.rank h3{font-size:1.2rem;color:var(--c)}
+.rank .pr{font-size:1.7rem;font-weight:800}.rank .pr small{font-size:.9rem;color:var(--muted);font-weight:500}
+.perks{display:flex;flex-wrap:wrap;gap:6px;flex:1;align-content:flex-start}
+.perks code{font:600 .78rem ui-monospace,Menlo,Consolas,monospace;padding:3px 9px;border-radius:8px;background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 30%,transparent)}
+.rank .btn{width:100%;background:var(--c);color:#101827}
+.rank .btn:hover{box-shadow:0 12px 30px color-mix(in srgb,var(--c) 45%,transparent)}
+.acc{display:grid;gap:12px}
+details{background:var(--card);border:1px solid var(--line);border-radius:18px;transition:border-color .3s,box-shadow .3s}
+details[open]{border-color:color-mix(in srgb,var(--a) 50%,transparent);box-shadow:var(--shadow)}
+summary{list-style:none;display:flex;align-items:center;gap:14px;padding:18px 22px;cursor:pointer;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary .n{display:grid;place-items:center;min-width:34px;height:34px;border-radius:11px;background:color-mix(in srgb,var(--a) 16%,transparent);color:var(--a);font-size:.9rem}
+summary .ic:last-child{margin-left:auto;transition:transform .3s}
+details[open] summary .ic:last-child{transform:rotate(180deg)}
+details ul{padding:0 22px 20px 70px;color:var(--muted);font-size:.93rem;display:grid;gap:9px;animation:fd .4s both}
+details li b{color:var(--text)}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.lk{display:block;padding:28px;min-height:170px}
+.lk .ic{width:1.7em;height:1.7em;color:var(--c);margin-bottom:18px;transition:transform .4s}
+.lk:hover .ic{transform:translate(4px,-4px) scale(1.12)}
+.lk h3{font-size:1.15rem}.lk p{color:var(--muted);font-size:.92rem;margin:4px 0 12px}.lk em{font-style:normal;font-size:.82rem;font-weight:700;color:var(--b)}
+footer{border-top:1px solid var(--line);padding:44px 0 30px;background:color-mix(in srgb,var(--bg) 70%,transparent)}
+footer .w{display:grid;gap:10px;color:var(--muted);font-size:.86rem}
+footer .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:55;display:flex;gap:6px;align-items:center;padding:8px;border-radius:22px;background:var(--hdr);border:1px solid var(--line);backdrop-filter:blur(16px);box-shadow:var(--shadow);animation:up .8s .6s both}
+@keyframes up{from{transform:translate(-50%,120%)}}
+.dock .play{display:flex;gap:12px;align-items:center;padding:8px 14px;border-radius:15px;background:var(--grad);background-size:200% 100%;color:#101827;text-align:left;font-weight:800;line-height:1.2;transition:transform .25s,background-position .5s}
+.dock .play:hover{transform:translateY(-3px);background-position:100% 0}
+.dock .play small{display:block;font-size:.65rem;font-weight:700;opacity:.7}
+.dock a{padding:10px 13px;border-radius:13px;font-size:.88rem;font-weight:600;transition:.25s}
+.dock a:hover{background:color-mix(in srgb,var(--a) 16%,transparent);transform:translateY(-3px)}
+.cpi.ok{color:#2fbf86}
+.toast{position:fixed;left:50%;top:calc(80px + env(safe-area-inset-top,0px));transform:translate(-50%,-30px);opacity:0;pointer-events:none;z-index:90;display:flex;gap:10px;align-items:center;padding:12px 20px;border-radius:16px;background:var(--card);backdrop-filter:blur(14px);border:1px solid color-mix(in srgb,#5fe3b1 60%,transparent);box-shadow:var(--shadow);font-weight:700;transition:.4s cubic-bezier(.2,1.4,.4,1)}
+.toast.show{opacity:1;transform:translate(-50%,0)}.toast .ic{color:#2fbf86}
+.ov{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(6,10,20,.6);backdrop-filter:blur(6px);padding:16px}
+.ov.on{display:grid;animation:fi .25s both}
+@keyframes fi{from{opacity:0}}
+.md{position:relative;width:min(480px,100%);max-height:92vh;overflow:auto;background:var(--bg);border:1px solid color-mix(in srgb,var(--c,var(--a)) 45%,transparent);border-radius:24px;padding:30px;box-shadow:var(--shadow);animation:pop .4s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes pop{from{transform:translateY(24px) scale(.94);opacity:0}}
+.md .x{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:var(--muted);transition:.25s}
+.md .x:hover{background:var(--card);color:var(--text);transform:rotate(90deg)}
+.md h3{font-size:2rem;margin:4px 0 10px}.md .pr{font-size:1.6rem;font-weight:800;color:var(--c)}.md .pr small{font-size:.9rem;color:var(--muted);font-weight:500}
+.md label{display:block;margin:22px 0 8px;color:var(--muted);font-size:.9rem}
+.md input,.md textarea{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;transition:.25s}
+.md input:focus,.md textarea:focus{outline:0;border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent)}
+.md textarea{min-height:130px;resize:vertical}
+.md .hint{color:var(--muted);font-size:.86rem;margin:12px 0}
+.md .err{color:#ee6b6b;font-size:.86rem;min-height:1.2em}
+.md .btn{width:100%;margin-top:10px}.md .btn.p{background:var(--c);color:#101827}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+#res{display:none}#res.on{display:block;animation:fd .4s both}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:900px){.hero .w{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.step .n::after{display:none}.links{grid-template-columns:1fr}nav{order:3;width:100%;overflow-x:auto}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}.dock a{padding:10px 8px;font-size:.8rem}details ul{padding-left:22px}section{padding:60px 0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="pt" aria-hidden="true"></canvas>
+
+<header class="top"><div class="w">
+  <a class="logo" href="#home"><i data-ic="drop"></i>MystDrop</a>
+  <nav id="nav" aria-label="Главное меню"><a href="#home">Главная</a><a href="#join">Как зайти</a><a href="#shop">Донат</a><a href="#rules">Правила</a><a href="#links">Ссылки</a></nav>
+  <div class="tr"><button id="theme" aria-label="Сменить тему"></button><a class="btn p sm" data-l="channel" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+</div></header>
+
+<main>
+<section id="home" class="hero"><div class="w">
+  <div>
+    <p class="eyebrow rv">MINECRAFT JAVA · УНИКАЛЬНЫЙ БОКСПВП</p>
+    <h1 class="rv" style="--d:.08s">Твой бокс.<br><span>Твоя битва.</span></h1>
+    <p class="lead rv" style="--d:.16s">Быстрые бои. Уникальные механики. Твой путь от первого меча до полной уверенности на арене. Залетай в MystDrop — здесь начинается твоя история.</p>
+    <div class="cta rv" style="--d:.24s">
+      <a class="btn p" href="#join">Начать приключение</a>
+      <button class="btn g" data-copy aria-label="Скопировать IP"><span data-ip></span><i class="cpi" data-ic="copy"></i></button>
+    </div>
+    <div class="status rv" style="--d:.32s"><i data-ic="users"></i><span class="dot off" id="dot"></span><span id="online">Сервер офлайн / загрузка…</span><span>|</span><span>Java <b id="ver"></b></span><span class="tag">Без лицензии</span></div>
+    <div class="feats rv" style="--d:.4s"><span><i data-ic="bolt"></i>Быстрые PvP-бои</span><span><i data-ic="spark"></i>Уникальные механики</span><span><i data-ic="shield"></i>Твой путь к победе</span></div>
+  </div>
+  <div class="rv" style="--d:.2s">
+    <figure class="art" id="art">
+      <!-- ПОЛОЖИ СВОЙ СКРИНШОТ СПАВНА рядом с этим файлом под именем spawn.jpg -->
+      <span>Положи скриншот спавна рядом с index.html<br>и назови его <b>spawn.jpg</b></span>
+      <img src="spawn.jpg" alt="Спавн MystDrop" onerror="this.remove()">
+      <figcaption>MystDrop Spawn</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="join"><div class="w">
+  <p class="eyebrow rv">01 / КАК ЗАЙТИ</p>
+  <h2 class="rv">Четыре шага до спавна</h2>
+  <p class="sub rv">Всё делается за минуту. Нужен только Minecraft Java Edition.</p>
+  <div class="steps">
+    <div class="card step rv"><div class="n">1</div><h3><i data-ic="monitor"></i>Запусти игру</h3><p>Открой Minecraft Java Edition версии <b class="ver"></b>.</p></div>
+    <div class="card step rv" style="--d:.1s"><div class="n">2</div><h3><i data-ic="list"></i>Добавь сервер</h3><p>В главном меню выбери «Сетевая игра» → «Добавить сервер».</p></div>
+    <div class="card step rv" style="--d:.2s"><div class="n">3</div><h3><i data-ic="copy"></i>Вставь адрес</h3><p>В поле «Адрес сервера» вставь <b data-ip></b> и нажми «Готово».</p><button class="btn g sm" data-copy><span>Скопировать IP</span><i class="cpi" data-ic="copy"></i></button></div>
+    <div class="card step rv" style="--d:.3s"><div class="n">4</div><h3><i data-ic="play"></i>Подключись</h3><p>Выбери MystDrop в списке и жми «Подключиться». Затем следуй подсказкам на спавне.</p></div>
+  </div>
+  <div class="card help rv"><div><b>Не получается зайти?</b><br><span style="color:var(--muted);font-size:.9rem">Напиши в поддержку — поможем разобраться.</span></div><a class="btn p sm" data-l="support" target="_blank" rel="noopener noreferrer">Написать в поддержку</a></div>
+</div></section>
+
+<section id="shop"><div class="w">
+  <p class="eyebrow rv">02 / ДОНАТ</p>
+  <h2 class="rv">Привилегии и ключи</h2>
+  <p class="sub rv">Выбери товар, укажи ник — сайт подготовит сообщение для продавца в Telegram.</p>
+  <div class="shop" id="shopGrid"></div>
+</div></section>
+
+<section id="rules"><div class="w">
+  <p class="eyebrow rv">03 / ПРАВИЛА</p>
+  <h2 class="rv">Правила сервера</h2>
+  <p class="sub rv">Играя на MystDrop, ты соглашаешься с правилами. Незнание не освобождает от ответственности.</p>
+  <div class="acc" id="acc"></div>
+</div></section>
+
+<section id="links"><div class="w">
+  <p class="eyebrow rv">04 / НАШЕ СООБЩЕСТВО</p>
+  <h2 class="rv">Не теряйся между битвами</h2>
+  <p class="sub rv">Новости, новые знакомства и помощь — всё в одном месте.</p>
+  <div class="links">
+    <a class="card lk rv" style="--c:var(--a)" data-l="channel" target="_blank" rel="noopener noreferrer"><i data-ic="send"></i><h3>Telegram-канал</h3><p>Новости и обновления</p><em>@MystDropServer</em></a>
+    <a class="card lk rv" style="--d:.1s;--c:var(--b)" data-l="chat" target="_blank" rel="noopener noreferrer"><i data-ic="users"></i><h3>Чат игроков</h3><p>Общение с игроками</p><em>Присоединиться к чату</em></a>
+    <a class="card lk rv" style="--d:.2s;--c:var(--a)" data-l="support" target="_blank" rel="noopener noreferrer"><i data-ic="head"></i><h3>Поддержка</h3><p>Помощь и вопросы</p><em>@Alex_pokemanex</em></a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+  <a class="logo" href="#home"><i data-ic="drop"></i>MystDrop</a>
+  <span>© MystDrop. Твоя игра — твои моменты.</span>
+  <span>Проект не связан с Mojang AB / Microsoft.</span>
+  <div class="row"><a class="btn g sm" data-l="channel" target="_blank" rel="noopener noreferrer">Telegram</a><a class="btn g sm" data-l="chat" target="_blank" rel="noopener noreferrer">Чат</a><a class="btn g sm" data-l="support" target="_blank" rel="noopener noreferrer">Поддержка</a></div>
+</div></footer>
+
+<div class="dock" role="toolbar" aria-label="Быстрые действия">
+  <button class="play" data-copy><span><small>Играть</small><span data-ip></span></span><i class="cpi" data-ic="copy"></i></button>
+  <a data-l="channel" target="_blank" rel="noopener noreferrer">Telegram</a><a data-l="chat" target="_blank" rel="noopener noreferrer">Чат</a><a data-l="support" target="_blank" rel="noopener noreferrer">Поддержка</a>
+</div>
+
+<div class="toast" id="toast" role="status"><i data-ic="check"></i><span id="tmsg"></span></div>
+
+<div class="ov" id="ov" aria-hidden="true"><div class="md" id="md" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <button class="x" id="mx" aria-label="Закрыть"><i data-ic="x"></i></button>
+  <p class="eyebrow" style="color:var(--c)">ПОКУПКА ЧЕРЕЗ <span class="sn"></span></p>
+  <h3 id="mt"></h3><div class="pr"><span id="mp"></span> <small id="mper"></small></div>
+  <label for="nick">Игровой ник</label>
+  <input id="nick" maxlength="16" placeholder="Например, Steve" autocomplete="off" spellcheck="false">
+  <div class="err" id="err"></div>
+  <p class="hint">3–16 латинских букв, цифр или подчёркиваний. Проверь ник перед отправкой.<br><br>Сайт подготовит сообщение. Оплату и выдачу согласуешь с <span class="sn"></span> в Telegram.</p>
+  <button class="btn p" id="prep">Подготовить покупку <i data-ic="arrow"></i></button>
+  <div id="res">
+    <label for="msg">Сообщение для <span class="sn"></span></label>
+    <textarea id="msg"></textarea>
+    <button class="btn g" id="cm">Скопировать сообщение <i data-ic="copy"></i></button>
+    <a class="btn p" id="tg" target="_blank" rel="noopener noreferrer">Открыть Telegram <i data-ic="send"></i></a>
+  </div>
+</div></div>
+
+<script>
+/* ===== ВСЕ НАСТРОЙКИ ЗДЕСЬ ===== */
+const CONFIG = {
+  ip: 'mystdrop.play.ski',
+  version: '1.21.x',                         // ЗАМЕНИТЬ: версия Minecraft
+  api: 'https://api.mcsrvstat.us/3/',        // живой онлайн
+  seller: 'Alex_pokemanex', sellerName: 'Alex',
+  links: { channel: 'https://t.me/MystDropServer', chat: 'https://t.me/+aBpRp5smkaA0MmRi', support: 'https://t.me/Alex_pokemanex' },
+  shop: [
+    { id: 'iron', e: '💎', n: 'Iron', p: 49, c: '#aab4c4', perks: ['/feed', '/kit iron'] },
+    { id: 'gold', e: '🥇', n: 'Gold', p: 149, c: '#f2c14e', perks: ['/feed', '/hat', '/ec', '/invsee', '/kit gold'] },
+    { id: 'diamond', e: '❤️', n: 'Diamond', p: 299, c: '#4fd6e6', perks: ['/feed', '/heal', '/invsee', '/hat', '/ec', '/lightning', '/kit diamond', '&1–&9 цветной текст'] },
+    { id: 'emerald', e: '💸', n: 'Emerald', p: 549, c: '#4fdc8c', perks: ['/feed', '/heal', '/invsee', '/hat', '/ec', '/lightning', '/back', '/repair all', '/kit emerald', '&1–&9 цветной текст'] },
+    { id: 'amethyst', e: '💜', n: 'Amethyst', p: 899, c: '#b58cff', perks: ['/feed', '/heal', '/invsee', '/hat', '/ec', '/lightning', '/back', '/repair all', '/fly', '/kit amethyst', '&1–&9 цветной текст'] },
+    { id: 'quantum', e: '🔵', n: 'Quantum', p: 1499, c: '#5b9dff', perks: ['/feed', '/heal', '/invsee', '/hat', '/ec', '/lightning', '/back', '/repair all', '/fly', '/ec (ник)', '/mute', '/colorpicker', '/kit quantum', '&1–&9 цветной текст'] },
+    { id: 'case', e: '♦️', n: 'Кейс с донатом', p: 149, c: '#f5a8d9', perks: ['Ключ от донат-кейса'], key: true }
+  ],
+  /* ЗАМЕНИТЬ СВОИМИ ПРАВИЛАМИ — каждый раздел: t — заголовок, i — пункты */
+  rules: [
+    { t: 'Общие правила', i: [
+      "Запрещено использование читов, сторонних модификаций и программ, дающих преимущество.",
+      "Запрещено использование багов, дюпов и уязвимостей сервера. О найденных ошибках сообщай в поддержку.",
+      "Запрещены оскорбления, провокации, спам и флуд в чате.",
+      "Запрещена реклама сторонних проектов и ресурсов.",
+      "Запрещён обман игроков и администрации."] },
+    { t: '🚫 Запрещённые моды', i: [
+      "<b>Для записи игры:</b> ReplayMod, IsometricRender, CmdCam, WorldDownloader, Flashback (кроме игроков со специальным разрешением).",
+      "<b>Добыча и автоматизация без участия игрока:</b> AutoMining, ReplantingCrops, AutoHarvest, Reap, Tweakeroo, AutoFish, Accurate Block Placement, Baritone.",
+      "<b>Подсветка и рендеринг (ВХ / X-Ray / камеры):</b> XRay, FreeCam, BaseFinder, TrueSight, DiamondGen, Player Spotlight, AucHelper, ChestTracker, Friend Highlighter, Donut Auctions, Neat, ChunkAnimator, MobHealthBar, Litematica / Schematica, block-entity-tooltip, WorldEdit, Better PVP, RemoveBlindness и аналоги, Re:Entity Outline, AntiInvis, Cooldowns HUD (UseTracker), CheatUtils, No Darkness Effect (removewardeneffect).",
+      "<b>Миникарты:</b> запрещены любые. Исключение — встроенные карты Lunar Client / PulseVisuals.",
+      "<b>Автоматическое использование функций сервера:</b> AutoBuy и аналоги, AutoSell и аналоги, AutoCasino, AutoPilot.",
+      "<b>Автоматизация ПВП, кликов в GUI, быстрый инвентарь:</b> InventoryControlTweaks, AutoLeave, Foodslot, Quickstack, ItemSwap, AutoTool, Movement in GUI, FasterBlockPlacement, Firework Helper, Effortless Building, InvMove, Inventory Profiles Next, autojumpreset.",
+      "<b>Меняющие условия PvP:</b> Dont Heat Teammates, Don't hit teammates, CleanCut, AutoAttack, AutoAim.",
+      "<b>Другое:</b> FeverVisuals, LuminarVisuals, Ascart, Badlion Client, SimpleVisuals, SoupApi (версии ниже 3.0.0), WaveVisuals, ClientCommands, а также взломанные версии мультимодов и самостоятельно изменённые визуалы и сборки."] },
+    { t: '⚠️ Запрещённый функционал', i: [
+      "Даже если мода нет в списке, аккаунт будет заблокирован, если в клиенте есть следующие функции:",
+      "<b>1. Подсветка и маркировка:</b> отображение игроков, скрытых сущностей, невидимок или блоков (включая маркеры на аукционе), дающее преимущество.",
+      "<b>2. Взаимодействие без участия человека:</b> скрипты упрощённого взаимодействия с сервером, например моментальный автовыкуп предметов.",
+      "<b>3. ПВП без открытия инвентаря:</b> использование предметов и манипуляции с инвентарём во время боя без открытия интерфейса. Минимальная задержка на действия с инвентарём — 4 тика. Исключение — замена талисманов во второй руке.",
+      "<b>4.</b> Любые другие функции, которые являются аналогами или интерпретацией читов.",
+      "✅ <b>AutoClicker разрешён.</b>"] },
+    { t: 'Проверка на читы', i: [
+      "USB-DriveLog / USB-Deview — проверка подключений внешних накопителей и флешек.",
+      "ExecutedProgramsList / WinPrefetchView — анализ ранее запущенных программ (.exe).",
+      "LastActivityView / OpenSaveFilesView — анализ активности системы и открытых файлов.",
+      "FunModAnalyzer — проверка модификаций в самой игре.",
+      "Error — полуавтоматическое сканирование ПК.",
+      "Модераторы со специальным статусом (Gl.Moder) могут потребовать установить другие утилиты для детального анализа системы."] },
+    { t: 'Платные услуги и сервисы', i: [
+      "9.1 Любые махинации с платежами или обман техподдержки караются перманентным баном без возврата средств.",
+      "9.2 При обращении по проблемам с зачислением доната нужно предоставить чек оплаты. Без подтверждения платежа администрация вправе отказать в рассмотрении заявки.",
+      "9.3 Администрация не обязана предоставлять доказательства нарушений игрокам с донат-статусами, если они были заблокированы или лишены привилегий за нарушение правил."] }
+  ]
+};
+
+/* ===== ИКОНКИ ===== */
+const I = {
+  copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>', send:'<path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/>',
+  users:'<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5a3 3 0 0 1 0 6M18 14c2 .7 3 2.6 3 5"/>',
+  head:'<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>',
+  drop:'<path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3z"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>',
+  moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>', play:'<path d="M7 4l13 8-13 8z"/>',
+  bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>', spark:'<path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>', x:'<path d="M6 6l12 12M18 6L6 18"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>', chev:'<path d="M6 9l6 6 6-6"/>',
+  monitor:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>', list:'<path d="M4 6h16M4 12h16M4 18h10"/>'
+};
+const ic = n => '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + I[n] + '</svg>';
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fmt = p => p.toLocaleString('ru-RU') + ' ₽';
+
+/* ===== ТЕМА ===== */
+const root = document.documentElement;
+function setTheme(t) {
+  root.dataset.theme = t;
+  $('#theme').innerHTML = ic(t === 'dark' ? 'sun' : 'moon');
+  $('meta[name=theme-color]').content = t === 'dark' ? '#0e1524' : '#f5f7ff';
+  try { localStorage.setItem('md-theme', t); } catch (e) {}
+}
+let th = 'dark'; try { th = localStorage.getItem('md-theme') || th; } catch (e) {}
+setTheme(th);
+$('#theme').onclick = () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+
+/* ===== ЗАПОЛНЕНИЕ ===== */
+$$('[data-l]').forEach(a => a.href = CONFIG.links[a.dataset.l]);
+$$('[data-ip]').forEach(e => e.textContent = CONFIG.ip);
+$('#ver').textContent = CONFIG.version; $$('.ver').forEach(e => e.textContent = CONFIG.version);
+$$('.sn').forEach(e => e.textContent = CONFIG.sellerName);
+$$('[data-ic]').forEach(e => e.innerHTML = ic(e.dataset.ic));
+$$('summary .ic:last-child');
+
+$('#shopGrid').innerHTML = CONFIG.shop.map((s, i) => `<div class="card rank rv" style="--c:${s.c};--d:${(i % 3) * .08}s"><div class="em">${s.e}</div><h3>${s.n}</h3><div class="pr">${fmt(s.p)} <small>${s.key ? 'за кейс' : 'навсегда'}</small></div><div class="perks">${s.perks.map(x => `<code>${x}</code>`).join('')}</div><button class="btn" data-buy="${s.id}">Приобрести</button></div>`).join('');
+
+$('#acc').innerHTML = CONFIG.rules.map((r, i) => `<details class="rv" style="--d:${i * .06}s"${i === 0 ? ' open' : ''}><summary><span class="n">${i + 1}</span>${r.t}${ic('chev')}</summary><ul>${r.i.map(x => `<li>${x}</li>`).join('')}</ul></details>`).join('');
+
+/* ===== КОПИРОВАНИЕ IP ===== */
+let tt;
+function toast(m) { $('#tmsg').textContent = m; const t = $('#toast'); t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2200); }
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); return true; }
+  catch (e) {
+    const a = document.createElement('textarea'); a.value = t; a.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(a); a.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} a.remove(); return ok;
+  }
+}
+$$('[data-copy]').forEach(b => b.onclick = async () => {
+  const ok = await copyText(CONFIG.ip);
+  toast(ok ? 'IP скопирован!' : 'Скопируй вручную: ' + CONFIG.ip);
+  if (ok) { $$('.cpi').forEach(e => { e.innerHTML = ic('check'); e.classList.add('ok'); }); setTimeout(() => $$('.cpi').forEach(e => { e.innerHTML = ic('copy'); e.classList.remove('ok'); }), 2000); }
+});
+
+/* ===== ОНЛАЙН ===== */
+function setOnline(on, n, max) {
+  $('#dot').classList.toggle('off', !on);
+  const el = $('#online');
+  if (!on) { el.textContent = 'Сервер офлайн / загрузка…'; return; }
+  if (reduce) { el.textContent = `Онлайн: ${n} / ${max}`; return; }
+  const t0 = performance.now();
+  (function f(t) { const k = Math.min(1, (t - t0) / 900); el.textContent = `Онлайн: ${Math.round(n * k)} / ${max}`; if (k < 1) requestAnimationFrame(f); })(t0);
+}
+async function loadOnline() {
+  try {
+    const r = await fetch(CONFIG.api + CONFIG.ip, { cache: 'no-store' });
+    if (!r.ok) throw 0;
+    const d = await r.json();
+    if (d.online && d.players) setOnline(true, d.players.online, d.players.max); else setOnline(false);
+  } catch (e) { setOnline(false); }
+}
+loadOnline(); setInterval(loadOnline, 60000);
+
+/* ===== ПОКУПКА ===== */
+let cur = null, lastFocus;
+const ov = $('#ov');
+function openBuy(id) {
+  cur = CONFIG.shop.find(s => s.id === id); lastFocus = document.activeElement;
+  $('#md').style.setProperty('--c', cur.c);
+  $('#mt').textContent = cur.n; $('#mp').textContent = fmt(cur.p); $('#mper').textContent = cur.key ? 'за кейс' : 'навсегда';
+  $('#nick').value = ''; $('#err').textContent = ''; $('#res').classList.remove('on');
+  ov.classList.add('on'); ov.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+  setTimeout(() => $('#nick').focus(), 60);
+}
+function closeBuy() { ov.classList.remove('on'); ov.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; lastFocus && lastFocus.focus(); }
+$$('[data-buy]').forEach(b => b.onclick = () => openBuy(b.dataset.buy));
+$('#mx').onclick = closeBuy;
+ov.addEventListener('mousedown', e => { if (e.target === ov) closeBuy(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && ov.classList.contains('on')) closeBuy(); });
+function prepare() {
+  const nick = $('#nick').value.trim();
+  if (!/^[A-Za-z0-9_]{3,16}$/.test(nick)) {
+    $('#err').textContent = 'Ник должен состоять из 3–16 латинских букв, цифр или подчёркиваний.';
+    const i = $('#nick'); i.classList.remove('shake'); void i.offsetWidth; i.classList.add('shake'); return;
+  }
+  $('#err').textContent = '';
+  const msg = `Здравствуйте! Хочу купить на MystDrop:\nТовар: ${cur.n}\nЦена: ${cur.p} ₽\nКоличество / срок: ${cur.key ? '1 кейс' : 'Навсегда'}\nИгровой ник: ${nick}`;
+  $('#msg').value = msg;
+  $('#tg').href = `https://t.me/${CONFIG.seller}?text=${encodeURIComponent(msg)}`;
+  $('#res').classList.add('on'); $('#res').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+}
+$('#prep').onclick = prepare;
+$('#nick').addEventListener('keydown', e => { if (e.key === 'Enter') prepare(); });
+$('#cm').onclick = async () => { toast((await copyText($('#msg').value)) ? 'Сообщение скопировано!' : 'Не удалось скопировать'); };
+
+/* ===== ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ + МЕНЮ ===== */
+const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } }), { threshold: .12 });
+$$('.rv').forEach(e => rio.observe(e));
+const links = $$('#nav a');
+const nio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-45% 0px -50% 0px' });
+$$('main section').forEach(s => nio.observe(s));
+
+/* ===== ПАРАЛЛАКС ===== */
+const art = $('#art');
+if (!reduce && matchMedia('(hover:hover)').matches) {
+  addEventListener('mousemove', e => {
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    art.style.transform = `perspective(900px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg)`;
+    const im = $('img', art); if (im) im.style.transform = `translate(${x * -14}px,${y * -14}px)`;
+  });
+}
+
+/* ===== ЧАСТИЦЫ ===== */
+if (!reduce) {
+  const cv = $('#pt'), cx = cv.getContext('2d'); let W, H, ps = [];
+  const size = () => { W = cv.width = innerWidth; H = cv.height = innerHeight; ps = Array.from({ length: Math.min(34, Math.round(W / 45)) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 2.2 + .8, v: Math.random() * .4 + .15, d: Math.random() * 6, k: Math.random() })); };
+  size(); addEventListener('resize', size);
+  (function loop() {
+    if (!document.hidden) {
+      cx.clearRect(0, 0, W, H);
+      const light = root.dataset.theme === 'light';
+      ps.forEach(p => {
+        p.y -= p.v; p.d += .01; p.x += Math.sin(p.d) * .3;
+        if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
+        cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 6.3);
+        cx.fillStyle = p.k > .5 ? `rgba(${light ? '210,66,143' : '245,168,217'},.55)` : `rgba(${light ? '31,127,214' : '124,199,255'},.55)`; cx.fill();
+      });
+    }
+    requestAnimationFrame(loop);
+  })();
+}
+</script>
+</body>
+</html>
